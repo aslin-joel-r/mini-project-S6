@@ -40,7 +40,12 @@
         <nav id="navigate">
             <a href="#aboutus">About Us</a>
             <a href="#prob-statement-cont">problem statements</a>
+            {%if user.is_authenticated %}
+            <li>Hello,{{user.first_name}}</li>
+            <a href="/logout">Logout</a>
+            {%else%}
             <a href="/login">Login</a>
+            {%endif%}
         </nav>
     </header>
 <hr>

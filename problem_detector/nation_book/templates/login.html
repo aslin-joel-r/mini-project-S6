@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Login Form</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    
 </head>
 <body>   
 <form class="box" action="" method="POST">
@@ -20,7 +20,7 @@
 
 <div>
     {% for message in messages%}
-    <b>
+    <b style="color:red">
         {{message}}
     </b>
     {% endfor %}
