@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +32,15 @@
             width: 80px;
             height: 60px;
         }
+        a{
+            border:3px solid black;
+        }
     </style>
     <header>
         <nav id="navigate">
             <a href="#aboutus">About Us</a>
             <a href="#prob-statement-cont">problem statements</a>
-            <a href="#prob-statement">footer</a>
+            <a href="/login">Login</a>
         </nav>
     </header>
 <hr>
@@ -49,7 +53,7 @@
         <div id="prob-statement">
                 Drug addicts
                 <hr>
-                <img id="imag" src="tasmarc.jpg" alt="place the image here">
+                <img id="imag" src="{% static 'img/tasmarc.jpg' %}"  alt="place the image here">
         </div>
       
         <div id="prob-statement">
