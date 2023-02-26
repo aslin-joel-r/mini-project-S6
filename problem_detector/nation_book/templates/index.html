@@ -38,8 +38,9 @@
     </style>
     <header>
         <nav id="navigate">
-            <a href="#aboutus">About Us</a>
-            <a href="#prob-statement-cont">problem statements</a>
+            <a href="/">Home</a>
+            <a href="/about_us">About Us</a>
+            <a href="/problem_statements">problem statements</a>
             {%if user.is_authenticated %}
             <li>Hello,{{user.first_name}}</li>
             <a href="/logout">Logout</a>

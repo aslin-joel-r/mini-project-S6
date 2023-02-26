@@ -30,8 +30,8 @@
     <label for="">Password</label>
     <input type="password" name="password" placeholder="Password">
 <br>
-    <label for="">Password2</label>
-    <input type="password" name="password2" placeholder="Retype the password">
+    <label for="">Password</label>
+    <input type="password" name="password2" placeholder="Confirm the password">
 <br>
     <input type="submit" value="Submit">
     </form>
@@ -39,6 +39,9 @@
         {% for message in messages%}
         <b style="color:red">{{message}}</b>
         {% endfor%}
+    </div>
+    <div>
+        Already have an account? <a href="/login">login</a>
     </div>
 </body>
 </html>

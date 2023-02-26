@@ -51,6 +51,9 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             return redirect('/')
+        elif user is None:
+            messages.info(request,'Fill the Form !')
+            return redirect('login')
         else:
             messages.info(request,'invalid data')
             return redirect('login')
@@ -61,3 +64,9 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def about_us(request):
+    return render(request,'about.html')
+
+def problem_statements(request):
+    return render(request,'problem-statements.html')
