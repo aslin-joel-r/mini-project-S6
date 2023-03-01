@@ -13,44 +13,47 @@
         *{
             margin: 0;
             font-family: monospace;
-            
         }
        
         a{
             text-decoration: none;
             color: white;
         }
-      
+        a:hover{
+            background-color: #cbf3f0;
+            color: #2ec4b6;
+            border: 3px solid #2ec4b6;
+
+        }
+
+        #navigate {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            gap: 30px;
+            background-color: #2ec4b6;
+            width: 100%;
+            z-index: 2;
+            height: 60px;
+            position: fixed;
+            font-size: 5vh;
+        }
           
-              
         #container{
-            background-image: url("{% static 'img/home3.jpg'%}");
+            background-image: url("{% static 'img/home.jpg'%}");
             display: flex;
 	        flex-direction: column;
 	        justify-content: space-between;
-	        height: 150vh;
-	        padding: 1em;
+	        height: 140vh;
+	        padding: 2em;
 	        box-sizing: border-box;
-	        
-            position: relative;
-            top: 160px;
+	        position: relative;
+            top: 170px;
             background-repeat: no-repeat;
             background-size:cover;
         }
 
-#navigate {
-    display: flex;
-	justify-content:center;
-	align-items: center;
-    gap: 30px;
-    background-color: #2ec4b6;
-    width: 100%;
-    z-index: 2;
-    height: 50px;
-    position: fixed;
-}
 footer{
-            
     position: relative;
     top: 150px;
     height: 30px;
@@ -63,38 +66,41 @@ footer{
     font-size: 20px
 }
 
-
 #desc{
     position: relative;
     justify-content: center;
     text-align: center;
     align-items: center;
-    top: -100px;
-        max-width: 16em;
-        
-        font-size: 12vh;
-        font-weight: bold;
-        
+    top: -110px;
+    max-width: 16em;
+    font-size: 12vh;
+    font-weight: bold;
+    color: #189c8f;
     }
-
-      
-    </style>
+    #log{
+        border: 2px solid rgb(27, 177, 172);
+        padding: 2px;
+        color:  #189c8f;
+        background-color:#cbf3f0 ;
+        border-radius: 10px;
+    }
+</style>
     <header>
         <nav id="navigate">
             <a href="/">Home</a>
             <a href="/about_us">About Us</a>
             <a href="/problem_statements">problem statements</a>
             {%if user.is_authenticated %}
-            <li>Hello,{{user.first_name}}</li>
-            <a href="/logout">Logout</a>
+            <b>Hello,{{user.first_name}}</b>
+            <a id="log" href="/logout">Logout</a>
             {%else%}
-            <a href="/login">Login</a>
+            <a id="log" href="/login">Login</a>
             {%endif%}
         </nav>
     </header>
 <hr>
 <div id="container">
-<h1 id="desc">" Let's Find the Solution Together "</h1>
+<h1 id="desc">"Let's Find the Solutions Together"</h1>
 </div>
     
 <hr>
