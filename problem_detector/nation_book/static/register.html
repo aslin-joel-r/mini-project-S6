@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Register</h1> 
+        <div class="content">
+    <form action="" method="POST">
+       <!-- {% csrf_token %}-->
+       <div class="user-details">
+       <div class="input-control">
+    <label for="">First name</label>
+    <input type="text" name="first_name" placeholder="First Name" required>
+    </div>
+
+    <div class="input-control">
+    <label for="">Last name</label>
+    <input type="text" name="last_name" placeholder="Last Name" required>
+   
+    </div>
+    
+    <div class="input-control">
+    <label for="">User name</label>
+    <input type="text" name="username" placeholder="User Name"required>
+
+    
+</div>
+<div class="input-control">
+    <label for="">Email</label>
+    <input type="email" name="email" placeholder="Email"required>
+
+    
+</div>
+<div class="input-control">
+    <label for="">Password</label>
+    <input type="password" name="password" placeholder="Password"required>
+</div>
+<div class="input-control">
+    <label for="">Password Again</label>
+    <input type="password" name="password2" placeholder="Confirm the password"required>
+
+</div>
+</div>
+<div class="btn">
+    <input class="button" type="submit" value="Signup">
+   <p>Already have an account?<a href="/login">Login</a></p>
+
+</div>
+    </form>
+   <!---- 
+    <div>
+        {% for message in messages%}
+        <b style="color:red">{{message}}</b>
+        {% endfor%}
+    </div>-->
+  <!----  <div>
+        Already have an account? <a href="/login">login</a>
+    </div>-->
+    </div>
+</div>
+</body>
+</html>
