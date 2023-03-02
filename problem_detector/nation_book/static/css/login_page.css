@@ -1,0 +1,85 @@
+:root{
+    --dark: #22577a;
+    --light:#c7f9cc ;
+    --average:#57cc99;
+    --moreavg:#38a3a5;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+}
+.box{
+  width:300px;
+  padding:30px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border: 5px solid var(--moreavg);
+  border-radius: 20px;
+  text-align:center;
+
+}
+.box h1
+{
+    color:var(--dark);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.box input[type="text"],.box input[type="password"]
+{
+border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align: center;
+border:3px solid var(--average);
+padding:14px 10px;
+width:220px;
+outline: none;
+color:var(--dark);
+border-radius: 24px;
+transition:0.25px;
+}
+
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+
+width:270px;
+border-color:var(--dark);
+color:var(--dark)
+
+}
+.box input[type="submit"]{
+
+
+border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align: center;
+border:3px solid var(--average);
+padding:14px 35px;
+outline: none;
+color:var(--dark);
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+    
+}
+.box input[type="submit"]:hover{
+    background:var(--dark);
+    color: var(--light);
+}
+
+a{
+    text-decoration: none;
+}
+#reg{
+    color: var(--dark);
+}
+#error{
+    color: red;
+    
+}

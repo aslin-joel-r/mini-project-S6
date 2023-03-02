@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Login Form</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login_page.css' %}">
     
 </head>
 <body>   
@@ -16,13 +16,13 @@
 <input type="text" name="username" placeholder="Enter Username" id="username">
 <input type="password" name="password" placeholder="Enter Password" id="password">
 <input type="submit" value="Login">
-<label for="account">Create a account <a href="/register">Register</a> </label>
+<label for="account" id="reg">Create a account <a href="/register"><b>Register</b></a> </label>
 
-<div>
+<div id="error">
     {% for message in messages%}
-    <b style="color:red">
+    <p style="color:red">
         {{message}}
-    </b>
+    </p>
     {% endfor %}
 </div>
 
