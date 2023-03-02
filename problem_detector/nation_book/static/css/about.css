@@ -1,3 +1,29 @@
-*{
+:root{
+    --dark: #22577a;
+    --light:#c7f9cc ;
+    --average:#57cc99;
+    --moreavg:#38a3a5;
+}
+body{
+    padding: 40px;
+    font-family:sans-serif;
+    border: 4px solid var(--moreavg);
+}
+h2{
+    font-size: 30px;
+    color:var(--dark);
+}
+h1{
+    font-size: 40px;
+    color:var(--dark);
+}
+p{
+    font-size: 20px;
+    color: var(--moreavg);
+    
+}
+b{
+    font-size: 20px;
+    color:var(--dark);
     
 }
