@@ -1,3 +1,5 @@
+{% load static %}
+{% static 'img' as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Problem-Statements</title>
 </head>
+<style>
+  table, th, td {
+    border:1px solid black;
+    text-align: center;
+  }
+  body{
+    display:flex;
+    flex-direction: row;
+  }
+</style>
 <body>
     <h1>Problem Statements</h1>
-    
+    {% for problem in problems%}
+    <table >
+      
+      <tr>
+        <td>
+          {{problem.problem_name}}
+        </td>
+      </tr>
+    <tr>
+      <td>
+        <img src="{{baseUrl}}/{{problem.problem_img}}" alt="">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{problem.problem_desc}}
+      </td>
+    </tr>
+  </table>
+    {% endfor %}
 </body>
 </html>
