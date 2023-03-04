@@ -1,5 +1,5 @@
 {% load static %}
-{% static 'img/problems' as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@
 </style>
 <body>
     <h1>Problem Statements</h1>
-    {% for problem in problems%}
+    {% for problem in problem_statement%}
     <table >
       
       <tr>
@@ -30,7 +30,7 @@
       </tr>
     <tr>
       <td>
-        <img src="{{baseUrl}}/{{problem.problem_img}}" alt="">
+        <img src="{{problem.problem_img.url}}" alt="">
       </td>
     </tr>
     <tr>

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-
+from .models import ProblemStatement
 # Create your views here.
 
 def index(request):
@@ -70,5 +70,6 @@ def about_us(request):
     return render(request,'about.html')
 
 def problem_statements(request):
+    problem_statement=ProblemStatement.objects.all()
 
-    return render(request,'problem-statements.html')
+    return render(request,'problem-statements.html',{'problem_statement':problem_statement})
