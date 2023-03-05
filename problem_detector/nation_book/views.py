@@ -73,3 +73,11 @@ def problem_statements(request):
     problem_statement=ProblemStatement.objects.all()
 
     return render(request,'problem-statements.html',{'problem_statement':problem_statement})
+
+def problem_statement(request,pk=None):
+    if pk:
+        problems=ProblemStatement.objects.get(pk=pk)
+    else:
+        problems=''
+    return render(request,'problem-statement.html',{'problems':problems})
+    
