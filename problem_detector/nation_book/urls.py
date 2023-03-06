@@ -13,8 +13,8 @@ urlpatterns=[
     path('problem_statements/',views.problem_statements,name='problem_statement'),
     path('problem_statements/<int:pk>/',views.problem_statement,name='problem_statement'),
     path('problem_statements/<int:pk>/solutions/',views.view_solutions,name='view_solutions'),
-    path('problem_statements/<int:pk>/your_problems/',views.your_problems,name='your_problems'),
-    path('problem_statements/<int:pk>/your_solution/',views.your_solution,name='your_solution'),
+    path('problem_statements/<int:pk>/my-problems/',views.my_problems,name='my_problems'),
+    path('problem_statements/<int:pk>/my-solution/',views.my_solution,name='my_solution'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
