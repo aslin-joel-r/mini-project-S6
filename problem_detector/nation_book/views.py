@@ -80,4 +80,18 @@ def problem_statement(request,pk=None):
     else:
         problems=''
     return render(request,'problem-statement.html',{'problems':problems})
+
+def view_solutions(request,pk):
+    if pk:
+        problems=ProblemStatement.objects.get(pk=pk)
+    else:
+        problems=''
+    return render(request,'view-solutions.html',{'problems':problems})
+    
+
+def your_problems(request):
+    return render(request,'your-problems.html')
+
+def your_solution(request):
+    return render(request,'your-solution.html')
     
