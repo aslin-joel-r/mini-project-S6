@@ -5,3 +5,13 @@ class ProblemStatement(models.Model):
     problem_desc = models.CharField(max_length=500)
     problem_img=models.ImageField(upload_to='problem_img')
     problem_id=models.IntegerField(default=0)
+
+class ProblemComments(models.Model):
+    body=models.TextField(default='')
+    time=models.DateTimeField(auto_now_add=True)
+    post=models.ForeignKey(ProblemStatement,on_delete=models.CASCADE,related_name='comments', default=0)
+
+    def __str__(self):
+        return self.body
+
+    

@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import ProblemStatement
+from . forms import ProblemStatementForm,ProblemCommentsForm
+from .models import ProblemStatement,ProblemComments
 # Create your views here.
 
 def index(request):
@@ -82,11 +83,19 @@ def problem_statement(request,pk=None):
     return render(request,'problem-statement.html',{'problems':problems})
 
 def view_solutions(request,pk):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'view-solutions.html',{'problems':problems})
+    post=ProblemStatement.objects.get(pk=pk)
+    comments=post.comments.all()
+    if request.method=='POST':
+        form=ProblemCommentsForm(request.POST)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.post=post
+            comment.save()
+            messages.success(request,'Your comment has been posted successfully')
+        else:
+            messages.error(request,'Error posting your comment')
+            return redirect('view-solutions',pk=post.pk)
+    return render(request,'view-solutions.html',)
     
 
 def my_problems(request,pk=None):
