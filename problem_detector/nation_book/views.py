@@ -4,7 +4,6 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from . forms import ProblemStatementForm,ProblemCommentsForm
 from .models import ProblemStatement,ProblemComments
-# Create your views here.
 
 def index(request):
     return render(request,'index.html')
@@ -72,7 +71,6 @@ def about_us(request):
 
 def problem_statements(request):
     problem_statement=ProblemStatement.objects.all()
-
     return render(request,'problem-statements.html',{'problem_statement':problem_statement})
 
 def problem_statement(request,pk=None):
@@ -83,21 +81,9 @@ def problem_statement(request,pk=None):
     return render(request,'problem-statement.html',{'problems':problems})
 
 def view_solutions(request,pk):
-    post=ProblemStatement.objects.get(pk=pk)
-    comments=post.comments.all()
-    if request.method=='POST':
-        form=ProblemCommentsForm(request.POST)
-        if form.is_valid():
-            comment=form.save(commit=False)
-            comment.post=post
-            comment.save()
-            messages.success(request,'Your comment has been posted successfully')
-        else:
-            messages.error(request,'Error posting your comment')
-            return redirect('view-solutions',pk=post.pk)
-    return render(request,'view-solutions.html',)
+    comments=ProblemComments.objects.filter(post=pk)
+    return render(request,'view-solutions.html',{'comments':comments})
     
-
 def my_problems(request,pk=None):
    
     return render(request,'my-problem.html')
@@ -111,6 +97,7 @@ def my_solution(request,pk=None):
         text = request.POST.get('text')
         post = ProblemStatement.objects.get(id=post_id)
         ProblemComments.objects.create(post=post,body=text)
+        return redirect('view_solutions',pk=post_id)
         
     return render(request,'my-solution.html',{'post':post})
     
