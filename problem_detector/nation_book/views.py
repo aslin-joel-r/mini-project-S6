@@ -99,17 +99,18 @@ def view_solutions(request,pk):
     
 
 def my_problems(request,pk=None):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'my-problem.html',{'problems':problems})
+   
+    return render(request,'my-problem.html')
     
 
 def my_solution(request,pk=None):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'my-solution.html',{'problems':problems})
+    post=ProblemStatement.objects.get(pk=pk)
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+       
+        text = request.POST.get('text')
+        post = ProblemStatement.objects.get(id=post_id)
+        ProblemComments.objects.create(post=post,body=text)
+        
+    return render(request,'my-solution.html',{'post':post})
     

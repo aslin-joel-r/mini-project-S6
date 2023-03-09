@@ -2,5 +2,10 @@
 <h2>
     My ideas to solve the problem
 </h2>
-<input type="textarea" style="height:100px;width:300px" name="" placeholder="Enter your idea" id="">
+<form  method="post">
+    {% csrf_token %}
+    <h1>Post id is {{post.id}}</h1>
+<input type="hidden" name="post_id" value="{{post.id}}">
+<input type="textarea" style="height:100px;width:300px" name="text" placeholder="Enter your idea" id="">
 <button type="submit">Submit</button>
+</form>
