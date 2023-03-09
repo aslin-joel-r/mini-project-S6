@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from . forms import ProblemStatementForm,ProblemCommentsForm
-from .models import ProblemStatement,ProblemComments
+from .models import ProblemStatement,ProblemComments,Problems
 
 def index(request):
     return render(request,'index.html')
@@ -93,7 +93,6 @@ def my_solution(request,pk=None):
     post=ProblemStatement.objects.get(pk=pk)
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
-       
         text = request.POST.get('text')
         post = ProblemStatement.objects.get(id=post_id)
         ProblemComments.objects.create(post=post,body=text)

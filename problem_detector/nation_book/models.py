@@ -14,4 +14,10 @@ class ProblemComments(models.Model):
     def __str__(self):
         return self.body
 
-    
+class Problems(models.Model):
+    problem_comments=models.TextField()
+    time=models.DateTimeField(auto_now_add=True)
+    post=models.ForeignKey(ProblemStatement,on_delete=models.CASCADE,related_name='problem_comments', default=0)
+
+    def __str__(self):
+        return self.problem_comments
