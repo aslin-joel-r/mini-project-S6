@@ -20,10 +20,11 @@
             <a href="/about_us">About-Us</a>
             <a href="/problem_statements">Problem-Statements</a>
             {%if user.is_authenticated %}
-            <b>Hello,{{user.first_name}}</b>
+            <b>Hello,{{user.username}}</b>
             <a id="log" href="/logout">Logout</a>
             {%else%}
             <a id="log" href="/login">Login</a>
+            <a id="log" href="/register">Register</a>
             {%endif%}
         </nav>
     </header>
