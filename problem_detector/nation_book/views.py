@@ -84,7 +84,9 @@ def problem_statement(request,pk=None):
 
 def view_solutions(request,pk):
     comments=ProblemComments.objects.filter(post=pk)
-    return render(request,'view-solutions.html',{'comments':comments})
+    problem=ProblemStatement.objects.get(pk=pk)
+
+    return render(request,'view-solutions.html',{'comments':comments,'problem':problem})
     
 def my_problems(request,pk=None):
    

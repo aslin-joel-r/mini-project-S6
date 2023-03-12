@@ -6,6 +6,9 @@ class ProblemStatement(models.Model):
     problem_img=models.ImageField(upload_to='problem_img')
     problem_id=models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.problem_name
+
 class ProblemComments(models.Model):
     body=models.TextField(default='')
     time=models.DateTimeField(auto_now_add=True)
