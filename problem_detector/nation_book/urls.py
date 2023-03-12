@@ -12,7 +12,7 @@ urlpatterns=[
     path('about_us/',views.about_us,name='about_us'),
     path('problem_statements/',views.problem_statements,name='problem_statement'),
     path('problem_statements/<int:pk>/',views.problem_statement,name='problem_statement'),
-    path('problem_statements/<int:pk>/solutions/',views.view_solutions,name='view_solutions'),
+    path('problem_statements/<int:pk>/view-solutions/',views.view_solutions,name='view_solutions'),
     path('problem_statements/<int:pk>/my-problems/',views.my_problems,name='my_problems'),
     path('problem_statements/<int:pk>/my-solution/',views.my_solution,name='my_solution'),
 ]

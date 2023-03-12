@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import ProblemStatement
-# Create your views here.
+from . forms import ProblemStatementForm,ProblemCommentsForm
+from .models import ProblemStatement,ProblemComments,Problems
 
 def index(request):
     return render(request,'index.html')
@@ -71,7 +71,6 @@ def about_us(request):
 
 def problem_statements(request):
     problem_statement=ProblemStatement.objects.all()
-
     return render(request,'problem-statements.html',{'problem_statement':problem_statement})
 
 def problem_statement(request,pk=None):
@@ -82,25 +81,22 @@ def problem_statement(request,pk=None):
     return render(request,'problem-statement.html',{'problems':problems})
 
 def view_solutions(request,pk):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'view-solutions.html',{'problems':problems})
+    comments=ProblemComments.objects.filter(post=pk)
+    return render(request,'view-solutions.html',{'comments':comments})
     
-
 def my_problems(request,pk=None):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'my-problem.html',{'problems':problems})
+   
+    return render(request,'my-problem.html')
     
 
 def my_solution(request,pk=None):
-    if pk:
-        problems=ProblemStatement.objects.get(pk=pk)
-    else:
-        problems=''
-    return render(request,'my-solution.html',{'problems':problems})
+    post=ProblemStatement.objects.get(pk=pk)
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        text = request.POST.get('text')
+        post = ProblemStatement.objects.get(id=post_id)
+        ProblemComments.objects.create(post=post,body=text)
+        return redirect('view_solutions',pk=post_id)
+        
+    return render(request,'my-solution.html',{'post':post})
     
