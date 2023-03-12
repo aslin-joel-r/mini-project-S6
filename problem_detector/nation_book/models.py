@@ -9,8 +9,9 @@ class ProblemStatement(models.Model):
 class ProblemComments(models.Model):
     body=models.TextField(default='')
     time=models.DateTimeField(auto_now_add=True)
-    post=models.ForeignKey(ProblemStatement,on_delete=models.CASCADE,related_name='comments', default=0)
-
+    post=models.ForeignKey(ProblemStatement,on_delete=models.CASCADE)
+    author=models.CharField(max_length=200)
+    
     def __str__(self):
         return self.body
 

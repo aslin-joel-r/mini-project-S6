@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from . forms import ProblemStatementForm,ProblemCommentsForm
 from .models import ProblemStatement,ProblemComments,Problems
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request,'index.html')
@@ -26,6 +27,7 @@ def register(request):
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'Email id exists !')
                 return redirect('register')
+                
             else:
                 user=User.objects.create_user(username=username,email=email,password=password,first_name=first_name,last_name=last_name)
 
@@ -36,7 +38,7 @@ def register(request):
             messages.info(request,'Password Not Matched !')
             return redirect('register')
 
-        print(username,email,password)
+        
         return redirect('index')
 
     else:
@@ -88,14 +90,16 @@ def my_problems(request,pk=None):
    
     return render(request,'my-problem.html')
     
-
+@login_required(login_url='login')
 def my_solution(request,pk=None):
     post=ProblemStatement.objects.get(pk=pk)
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
         text = request.POST.get('text')
         post = ProblemStatement.objects.get(id=post_id)
-        ProblemComments.objects.create(post=post,body=text)
+        author=request.user.username
+
+        ProblemComments.objects.create(post=post,body=text,author=author)
         return redirect('view_solutions',pk=post_id)
         
     return render(request,'my-solution.html',{'post':post})
