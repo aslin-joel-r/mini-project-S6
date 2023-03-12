@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{problems.problem_name}}</title>
 </head>
-<body bgcolor="aqua"> 
+<body > 
 
-    <center><h1>EDUCATION SYSTEM</h1></center>
+    <center><h1>{{problems.problem_name}}</h1></center>
     <br><br><br>
-    <p>1.What can we do to improve the Indian system?How ccan a possible solution be brought to the government's attention? </p>
-    <a href="{{request.path}}solutions"><button>View </button></a>
-    <a href="{{request.path}}my-solution"><button>Answer</button></a>
-    <a href="{{request.path}}my-problems"><button>Post</button></a><br><br><br>
-    <p>2.What would an ideal education look like if you could redesign it from scratch?</p>
-    <a href="{{request.path}}solutions"><button>View </button></a>
-    <a href="{{request.path}}my-solution"><button>Answer</button></a>
-    <a href="{{request.path}}my-problems"><button>Post</button></a>
+    <p>1.What can we do to improve the Indian system ? How can a possible solution be brought to the government's attention? </p>
+    <a href="{{request.path}}view-solutions"><button>View Solutions</button></a>
+    <a href="{{request.path}}my-solution"><button>Solutions</button></a>
+    <a href="{{request.path}}my-problems"><button>Post problems</button></a><br><br><br>
+
 
    <!-- <h2>
         Problem name : {{problems.problem_name}}

@@ -15,20 +15,15 @@
 {% for comment in comments %}
     
 <div class="container mt-3">
-   
-           
-    <table class="table table-striped">
-      
-      <tbody>
-        <tr>
-            <small>{{comment.author}}</small>
-          <td>{{comment.body}},<small class="m-5">{{comment.time}}</small></td>
-          
-          
-        </tr>
-       
-      </tbody>
-    </table>
+   <div class="container p-2 border border-3 rounded-4">
+    <p class="">{{comment.author}}</p>
+    <small class="float-end">{{comment.time}}</small>
+    <h5>{{comment.body}}</h5>
+    
+    
+    
+   </div>
+     
   </div>
   
 {% endfor %}
