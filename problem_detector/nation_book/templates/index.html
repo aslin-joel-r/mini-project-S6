@@ -20,14 +20,17 @@
     
     <header>
         {% block content %}
+
         {% endblock %}
     </header>
-    
-    <div class="container mt-3">
+    <br><br>
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 order-md-2">
-                <h2>Let's discuss the problems</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo tristique elit, non bibendum nunc hendrerit non. Sed imperdiet eget urna vel hendrerit. Ut venenatis euismod erat ac sollicitudin. Vivamus vitae dapibus lectus, non bibendum nunc hendrerit non. </p>
+                <h2>Posting Problems:</h2>
+                <p>
+                    Welcome to our platform where we post the most pressing problems facing our society, as identified by our team of experts. Our goal is to create awareness and encourage people to come forward with their ideas and solutions to these problems.
+                </p>
             </div>
             <div class="col-md-6 order-md-1">
                 <img src="{% static 'img/discuss.jpg' %}" alt="Image not found" class="float-end rounded" width="304" height="236">
@@ -41,8 +44,10 @@
                 <img src="{% static 'img/home.jpg' %}" alt="Image not found" class="float-start rounded" width="304" height="236">
             </div>
             <div class="col-md-6 order-md-1">
-                <h2>Let's find the solutions to the problem</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo tristique elit, non bibendum nunc hendrerit non. Sed imperdiet eget urna vel hendrerit. Ut venenatis euismod erat ac sollicitudin. Vivamus vitae dapibus lectus, non bibendum nunc hendrerit non. </p>
+                <h2>Collecting Solutions:</h2>
+                <p>
+                    We believe that everyone has a valuable contribution to make towards creating a better society. That's why we encourage individuals and organizations to share their solutions to the problems we post on our platform. We collect these solutions and use data analysis and machine learning to filter and refine them, in order to identify the most effective and impactful solutions.
+                </p>
             </div>
         </div>
     </div>
@@ -53,11 +58,14 @@
                 <img src="{% static 'img/society.jfif' %}" alt="Image not found" class="float-start rounded" width="304" height="236">
             </div>
             <div class="col-md-6 order-md-2">
-                <h2>Let's Make the Society Better</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo tristique elit, non bibendum nunc hendrerit non. Sed imperdiet eget urna vel hendrerit. Ut venenatis euismod erat ac sollicitudin. Vivamus vitae dapibus lectus, non bibendum nunc hendrerit non. </p>
+                <h2>Making a Better Society:</h2>
+                <p>
+                    Our ultimate goal is to make a positive impact on society by implementing innovative and sustainable solutions to the problems we face. By working together and leveraging the power of technology, we can create a world that is fair, just, and equitable for all. Join us in our efforts to make a better world for everyone.
+                </p>
             </div>
         </div>
     </div>
+    {% include 'footer.html' %}
     
 </body>
 </html>
