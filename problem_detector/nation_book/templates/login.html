@@ -6,9 +6,56 @@
     <meta charset="utf-8">
     <title>Login-Page</title>
     <link rel="stylesheet" href="{% static 'css/login_page.css' %}">
-    
+    <style>
+      .box {
+      width: 40%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+      /*  screens larger than 1200px */
+    @media screen and (min-width: 1200px) {
+      .box {
+        margin-top: 100px;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .password-field {
+        width: 100%;
+      }
+    }
+         /* adjust for smaller screens */
+    @media only screen and (max-width: 600px) {
+      .box {
+        width: 80%;
+        padding: 10px;
+      }
+    }
+
+    /* adjust for even smaller screens */
+    @media only screen and (max-width: 480px) {
+      .box {
+        width: 90%;
+        padding: 5px;
+      }
+    }
+    </style>
+  <script>
+  function validatePassword() {
+    var password = document.getElementById("password").value;
+    if (password.length < 8) {
+      document.getElementById("password").setCustomValidity("Password must be at least 8 characters long.");
+    } else {
+      document.getElementById("password").setCustomValidity("");
+    }
+  }
+  </script>
+  
+  
 </head>
-<body >   
+<body>   
 
     <div >
         
@@ -18,7 +65,7 @@
     login
 </h1>
 <input type="text" name="username" placeholder="Enter Username" id="username">
-<input type="password" name="password" placeholder="Enter Password" id="password">
+<input type="password" class="password-field" name="password" placeholder="Enter Password" id="password" oninput="validatePassword()">
 <input type="submit" value="Login">
 
 
