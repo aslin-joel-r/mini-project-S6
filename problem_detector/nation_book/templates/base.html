@@ -10,9 +10,11 @@
    
   <body class="container-fluid">
     
-    <!-- including the header file -->
-    {% include 'partials/header.html' %}
+    <header>
+        <!-- including the header file -->
+        {% include 'partials/header.html' %}
 
+    </header>
     <main>
         
         {% block content %} 
@@ -23,7 +25,12 @@
     
     </main>
 
+   <footer class="container-fluid bg-alert">
+
+        <!-- including the footer file -->
     {% include 'partials/footer.html' %}
+
+   </footer>
  
 </body>
 </html>
