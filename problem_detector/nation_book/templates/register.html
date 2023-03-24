@@ -1,5 +1,5 @@
 {% load static%}
-<!DOCTYPE html>
+<!--//////////////////////////--><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
-    <script src="register.js"></script>
+    <style>
+        input:required:invalid {
+  border-color: red;
+}
+
+input:required:invalid + span:before {
+  content: "This field is required";
+  color: red;
+  font-size: 12px;
+}
+
+input:required:valid {
+  border-color: green;
+}
+
+input:required:valid + span:before {
+  content: "\2714";
+  color: green;
+  font-size: 12px;
+}
+
+        span{color:red;}
+        .btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+}
+
+
+    @media screen and (min-width: 1024px) {
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .input-control {
+    flex: 0 0 calc(50% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-top: 30px;
+  }
+}
+</style> 
+<script>
+    const passwordInput = document.getElementById('password');
+
+passwordInput.addEventListener('input', () => {
+  const password = passwordInput.value;
+  const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[$@1]).{8,}$/;
+  const isPasswordValid = passwordPattern.test(password);
+  
+  if (password.length < 8) {
+    passwordInput.setCustomValidity('Password must be at least 8 characters long');
+  } else if (isPasswordValid) {
+    passwordInput.setCustomValidity('');
+  } else {
+    passwordInput.setCustomValidity('Password must have at least one alphabetic character, one of the special characters $, @, or 1, and be at least 8 characters long');
+  }
+  
+  passwordInput.reportValidity();
+});
+
+</script>
 </head>
 <body>
 
@@ -29,8 +112,8 @@
     </div>
 
     <div class="input-control">
-    <label for="">User name </label>
-    <input type="text" name="username" placeholder="User Name"  required>
+    <label for="">User name<span>*</span></label>
+    <input type="text" name="username" id="name" placeholder="User Name"required>
 
 
 </div>
@@ -41,13 +124,13 @@
 
 </div>
 <div class="input-control">
-    <label for="">Password</label>
-    <input type="password" name="password" placeholder="Password"required>
+    <label for="">Password<span>*</span></label>
+    <input type="password" name="password" id="password "placeholder="Password" minlength="4" maxlength="8"pattern="[a-z]{4,8}"required>
 </div>
 <div class="input-control">
-    <label for="" required>Password Again</label>
-    <input type="password" name="password2" placeholder="Confirm the password"required>
-
+    <label for="" required>Password Again<span>*</span></label>
+    <input type="password" name="password2"id="password" placeholder="Confirm the password"minlength="4" maxlength="8"required>
+</div>
 </div>
 </div>
 <div class="btn">
