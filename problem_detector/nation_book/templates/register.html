@@ -29,24 +29,6 @@ input:required:valid + span:before {
 }
 
         span{color:red;}
-        .btn {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  background-color: #3e8e41;
-}
-
 
     @media screen and (min-width: 1024px) {
   .container {
@@ -71,26 +53,27 @@ input:required:valid + span:before {
   }
 }
 </style> 
-<script>
-    const passwordInput = document.getElementById('password');
-
-passwordInput.addEventListener('input', () => {
-  const password = passwordInput.value;
-  const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[$@1]).{8,}$/;
-  const isPasswordValid = passwordPattern.test(password);
+<form>
+    <input type="text" id="field_name" name="field_name" required>
+    <button type="submit" onclick="validate()">Submit</button>
+  </form>
   
-  if (password.length < 8) {
-    passwordInput.setCustomValidity('Password must be at least 8 characters long');
-  } else if (isPasswordValid) {
-    passwordInput.setCustomValidity('');
-  } else {
-    passwordInput.setCustomValidity('Password must have at least one alphabetic character, one of the special characters $, @, or 1, and be at least 8 characters long');
-  }
+  <script>
+    function validate() {
+      var field = document.getElementById("field_name");
+      var fieldValue = field.value;
+      var pattern = /^[a-zA-Z0-9]+$/; // regular expression to match only letters or numbers
   
-  passwordInput.reportValidity();
-});
-
-</script>
+      if (!pattern.test(fieldValue)) {
+        alert("Field value must contain only letters or numbers");
+        field.focus();
+        return false;
+      }
+  
+      return true;
+    }
+  </script>
+  
 </head>
 <body>
 
