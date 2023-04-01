@@ -12,9 +12,11 @@ urlpatterns=[
     path('about_us/',views.about_us,name='about_us'),
     path('problem_statements/',views.problem_statements,name='problem_statement'),
     path('problem_statements/<int:pk>/',views.problem_statement,name='problem_statement'),
+
     path('problem_statements/<int:pk>/view-solutions/',views.view_solutions,name='view_solutions'),
     path('problem_statements/<int:pk>/my-problems/',views.my_problems,name='my_problems'),
     path('problem_statements/<int:pk>/my-solution/',views.my_solution,name='my_solution'),
+    path('problem_statements/<int:pk>/view-problems/',views.view_problems,name='view_problems'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

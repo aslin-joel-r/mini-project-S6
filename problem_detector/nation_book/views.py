@@ -2,8 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from . forms import ProblemStatementForm,ProblemCommentsForm
-from .models import ProblemStatement,ProblemComments,Problems
+from .models import ProblemStatement,ProblemComments,SmallProblems
 from django.contrib.auth.decorators import login_required
 
 def index(request):
@@ -87,8 +86,27 @@ def view_solutions(request,pk):
     problem=ProblemStatement.objects.get(pk=pk)
 
     return render(request,'view-solutions.html',{'comments':comments,'problem':problem})
-    
+
+def view_problems(request,pk):
+    comments=SmallProblems.objects.filter(post=pk)
+    problem=SmallProblems.objects.get(pk=pk)
+
+    return render(request,'view-problems.html',{'comments':comments,'problem':problem})
+
+
+@login_required(login_url='login')
 def my_problems(request,pk=None):
+    post=ProblemStatement.objects.get(pk=pk)
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        text = request.POST.get('text')
+        post = ProblemStatement.objects.get(id=post_id)
+        author=request.user.username
+
+        SmallProblems.objects.create(post=post,body=text,author=author)
+        return redirect('view_problems',pk=post_id)
+        
+    return render(request,'my-problem.html',{'post':post})
    
     return render(request,'my-problem.html')
     

@@ -1,4 +1,38 @@
-<h1>My problems  </h1>
-<h2>
-    <marquee behavior="" direction="">under Construction</marquee>
-</h2>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container p-4 mx-auto mt-5">
+
+  <form  method="post">
+    {% csrf_token %}
+
+    <h3 class="d-flex justify-content-center">Let's enter your Problems here</h3><br>
+    <input type="hidden" name="post_id" value="{{post.id}}">
+    <div class="d-flex justify-content-center">
+      <textarea class="form-control" rows="10" cols="60" name="text" placeholder="Enter your problem's here " id="comment" class="border border-4" style="border-color:black"></textarea>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <button type="submit" id="post" class="btn btn-outline-dark">Post</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  /* This script is used to disable the submit button if the input field is empty */
+
+  const inputField = document.getElementById('comment');
+  const submitButton = document.getElementById('post');
+  submitButton.disabled = true;
+  
+  inputField.addEventListener('input', function() {
+    if (inputField.value === '') {
+      submitButton.disabled = true;
+    } else {
+      submitButton.disabled = false;
+    }
+  });
+  
+</script>
+{% endblock %}
