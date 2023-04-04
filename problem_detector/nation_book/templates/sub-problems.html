@@ -6,6 +6,12 @@
 <br>
 <div class="mt-5">
   <center><h5>The sub problems for  {{problem}}</h5></center><br>
+  
+  {% if comments|length == 0 %}
+  <center><h5 style="color:red">There is no problem's submitted yet.</h5></center>
+  
+  {% else %}
+  
   {% for comment in comments %}
     
   <div class="container mt-3">
@@ -21,5 +27,5 @@
   
 </div>
   {% endfor %}
-
+{%endif%}
 {% endblock %}

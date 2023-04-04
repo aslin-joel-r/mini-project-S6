@@ -6,6 +6,10 @@
 <br>
 <div class="mt-5">
   <center><h5>The solution's for  <b>{{problem}}</b></h5></center><br>
+  {% if comments|length == 0 %}
+  <center><h5 style="color:red">There is no solution's submitted yet.</h5></center>
+  
+  {% else %}
   {% for comment in comments %}
     
   <div class="container mt-3">
@@ -14,12 +18,12 @@
       <p class="">{{comment.author}}</p>
       <small class="float-end">{{comment.time}}</small>
       <h5>{{comment.body}}</h5>
-    
     </div>
      
   </div>
   
-</div>
   {% endfor %}
+  {% endif %}
 
+</div>
 {% endblock %}
