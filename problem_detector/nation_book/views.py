@@ -89,9 +89,9 @@ def view_solutions(request,pk):
 
 def view_problems(request,pk):
     comments=SmallProblems.objects.filter(post=pk)
-    problem=SmallProblems.objects.get(pk=pk)
+    problem=ProblemStatement.objects.get(pk=pk)
 
-    return render(request,'view-problems.html',{'comments':comments,'problem':problem})
+    return render(request,'sub-problems.html',{'comments':comments,'problem':problem})
 
 
 @login_required(login_url='login')
