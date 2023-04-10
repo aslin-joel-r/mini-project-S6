@@ -1,96 +1,95 @@
-<html lang="en">
 
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
-<style>
-  
-  
-.main-bg {
-  background-image: linear-gradient(135deg,#71b7e6,#9b59b6);
-  border-radius:5px;
-}
+  <style>
+    .main-bg {
+      background-image: linear-gradient(135deg,#71b7e6,#9b59b6);
+      border-radius:5px;
+    }
 
-button {
- align-items: center;
- background-image: linear-gradient(135deg, #71b7e6, #9b59b6);
- border-radius: 8px;
- box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
- box-sizing: border-box;
- color: #FFFFFF;
- display: flex;
- font-family:sans-serif;
- font-size: 18px;
- justify-content: center;
- line-height: 1em;
- max-width: 100%;
- min-width: 140px;
- padding: 3px;
- text-decoration: none;
- cursor: pointer;
- transition: all .3s;
-  margin: auto;
-  width: 132px;
-  height: 50px;
-  padding: 8px 16px;
-    border: 2px solid #9b59b6;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  button:hover {
-    background-image: linear-gradient(135deg, #71b7e6, #9b59b6);;
-    color: white;
-    cursor: pointer;
-  }
-h2{
-  font-size: 32px;
-  font-weight: bold;
-  color:#190532;
-  font-family:  Helvetica, sans-serif;
-}
-.form-control{
-  border: 2px solid   #a677b9;
-    color: white;
-    flex: 0 0 calc(50% - 20px);
-    margin-bottom: 30px;
-   
-}
+    button {
+      align-items: center;
+      background-image: linear-gradient(135deg, #71b7e6, #9b59b6);
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      
+      display: flex;
+      font-family:sans-serif;
+      font-size: 18px;
+      justify-content: center;
+      line-height: 1em;
+      max-width: 100%;
+      min-width: 140px;
+      padding: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .3s;
+      margin: auto;
+      width: 132px;
+      height: 50px;
+      padding: 8px 16px;
+      border: 2px solid #9b59b6;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-</style>
+    button:hover {
+      background-image: linear-gradient(135deg, #71b7e6, #9b59b6);;
+      color: white;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      color:#190532;
+      font-family:  Helvetica, sans-serif;
+    }
+
+    .form-control {
+      border: 2px solid   #a677b9;
+      
+      flex: 0 0 calc(50% - 20px);
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
 
-
-
 <body class="main-bg">
- <center> <div class="container"></center>
-    <div class="row justify-content-center mt-5">
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <div class="card shadow">
-          <div class="card-title text-center ">
-            <h2 class="p-3">Login</h2>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="mb-4">
-               
-                <input type="text" class="form-control" id="username" placeholder="User Name"/>
+  <center>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="card shadow">
+            <div class="card-title text-center ">
+              <h2 class="p-3">Login</h2>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="User Name"/>
+                </div>
+                <div class="mb-4">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                </div>
+                <div class="d-grid">
+                  <button type="submit">SignIn</button>
+                </div>
+              </form>
+              <div id="error">
+                {% for message in messages %}
+                  <p style="color:red">{{ message }}</p>
+                {% endfor %}
               </div>
-              <div class="mb-4">
-
-                <input type="password" class="form-control" id="password" placeholder="Password"/>
-              </div>
-              <div class="d-grid">
-                <button type="submit">SignIn</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</body>
-
-</html>
+    </div
