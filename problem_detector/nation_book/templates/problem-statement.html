@@ -4,15 +4,43 @@
 {% block content %}
 
 <div >
+    <style>
+        a{
+            text-decoration: none;
+        }
+        button{
+            
+            border: 2px solid black;
+            color: white;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            text-align: center;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     <br><br><br>
     <center><h1>{{problems.problem_name}}</h1></center>
     <br><br><br>
-    <p>1.What can we do to improve the Indian system ? How can a possible solution be brought to the government's attention? </p>
+    <center>
+        <h3>How we can Solve the problem ? Enter the problems that you are facing , Enter your solutions or feedback </h3><br><br>
+    </center>
     
-    <a href="{{request.path}}view-solutions"><button>View Solutions</button></a>
-    <a href="{{request.path}}my-solution"><button>My Solutions</button></a>
-    <a href="{{request.path}}my-problems"><button>Post problems</button></a>
-    <a href="{{request.path}}view-problems"><button>View problems</button></a><br><br><br>
+    <center>
+        <a href="{{request.path}}view-solutions">
+            <button >View Solutions</button>
+        </a>
+        <a href="{{request.path}}my-solution">
+            <button>My Solutions</button>
+        </a>
+        <a href="{{request.path}}my-problems">
+            <button>Post problems</button>
+        </a>
+        <a href="{{request.path}}view-problems">
+            <button>View problems</button>
+        </a>
+    </center>
+    <br><br><br>
 
 
 </div>
