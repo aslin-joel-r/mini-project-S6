@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="container p-4 mx-auto mt-5">
-
+<br><br>
   <form  method="post">
     {% csrf_token %}
 
-    <h3 class="d-flex justify-content-center">Let's enter your Problems here</h3><br>
+    <h3 class="d-flex justify-content-center">Let's Post your Problems here</h3><br>
     <input type="hidden" name="post_id" value="{{post.id}}">
     <div class="d-flex justify-content-center">
       <textarea class="form-control" rows="10" cols="60" name="text" placeholder="Enter your problem's here " id="comment" class="border border-4" style="border-color:black"></textarea>
