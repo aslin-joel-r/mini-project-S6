@@ -1,8 +1,6 @@
 {% load static %}
-
 <style>
 .navbar a:hover{
-    
     background-image:linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
     color: white;
     border-radius: 10px;
@@ -10,8 +8,6 @@
   .navbar a{
     font-size: 25px;
   }
-  
-  
 </style>
   <nav  class="navbar navbar-expand-sm bg-light justify-content-center fixed-top border border-2">
     <ul class="nav nav-pills" role="tablist">
@@ -24,9 +20,7 @@
       <li class="nav-item">
         <a class="nav-link" id="link" data-bs-toggle="pill" href="/problem_statements">Problem-Statements</a>
       </li>
-
       {%if user.is_authenticated %}
-      
       <!--
         If user is authenticated then show logout button
       -->
@@ -37,22 +31,17 @@
       <li class="nav-item">
         <a class="nav-link" id="link" data-bs-toggle="pill" href="/logout">logout</a>
       </li>
-
       {%else%}
-
       <!--
         If user is not authenticated then show login and register button
       -->
-
       <li class="nav-item">
         <a class="nav-link" id="link" data-bs-toggle="pill" href="/login">login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="link" data-bs-toggle="pill" href="/register">Register</a>
       </li>
-      
     </ul>
-
     {%endif%}
 </nav>
 
