@@ -1,3 +1,8 @@
-# mini_project
-Mini Project for s6
-### Targets-want to find the solution to the problems in the real time application
+# Mini Project for S6
+
+## Project Scope :
+      A better platform to analyze the problems in the society and 
+      finding the better solutions for it.
+
+#### its the beginning .....
+ 
